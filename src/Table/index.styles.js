@@ -52,10 +52,11 @@ const TableWrapper = styled.div`
     }
 
     .second-second {
-      color: var(--purple);
+      color: var(--orange);
       font-size: 1.3rem;
     }
   }
+
   &:focus-within {
     input {
       opacity: 1;

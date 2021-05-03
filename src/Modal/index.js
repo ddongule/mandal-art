@@ -1,9 +1,17 @@
-import styled from 'styled-components';
+import { ModalWrapper, ModalInner } from './index.styles';
 
-const ModalWrapper = styled.div``;
+function Modal({ handleModalClose, children }) {
+  const onClickModalDimmed = (e) => {
+    console.log(e.target, e.currentTarget);
+    if (e.target !== e.currentTarget) return;
 
-function Modal() {
-  return <ModalWrapper>전체보기</ModalWrapper>;
+    handleModalClose();
+  };
+  return (
+    <ModalWrapper onClick={onClickModalDimmed}>
+      <ModalInner>{children}</ModalInner>
+    </ModalWrapper>
+  );
 }
 
 export default Modal;

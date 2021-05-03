@@ -19,7 +19,7 @@ const ButtonWrapper = styled.button`
 
   &:not(:first-child) {
     margin-left: 1rem;
-    color: var(--purple);
+    color: var(--orange);
   }
 `;
 

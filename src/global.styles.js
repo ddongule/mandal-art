@@ -6,14 +6,12 @@ const GlobalStyle = createGlobalStyle`
 		--gray: #cacaca;
 		--white: #ffffff;
 		--black: #000000;
-		--orange: rgba(255, 143, 78, 1);
+		--orange: #ff9f09;
 		--white-rgb: 0,0,0;
 		--purple: #5e53ff;
 		--red: #ff5353;
 		--red-opacity: #ff5353c8;
 		--background: hsla(0,0%,40%,0.56863);
-		--gradient-start: #b6d3ff;
-		--gradient-end: #fec2e9;
 	}
 
 	* {
@@ -79,7 +77,11 @@ const GlobalStyle = createGlobalStyle`
 		justify-content: center;
 		align-items: center;
 		margin-top: 1.5rem;
+	}
 
+	.example-image {
+    position: absolute;
+		width: 90%;
 	}
 `;
 

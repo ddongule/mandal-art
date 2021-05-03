@@ -6,6 +6,8 @@ import Slider from './Slider';
 import domtoimage from 'dom-to-image';
 import { useState } from 'react';
 import Button from './Button';
+import Modal from './Modal';
+import mandalart from '../src/assets/images/mandalart_otani.jpeg';
 
 function App() {
   const [mainInput, setMainInput] = useState({
@@ -20,6 +22,11 @@ function App() {
     nineth: '',
   });
 
+  const [modal, setModal] = useState({
+    isModalOpen: false,
+    modalContent: '',
+  });
+
   function addMainInput(name, value) {
     setMainInput({
       ...mainInput,
@@ -29,7 +36,7 @@ function App() {
 
   function saveToImage() {
     const captureDOM = document.getElementById('capture');
-
+    console.log(captureDOM);
     domtoimage.toPng(captureDOM).then((dataURL) => {
       const image = dataURL.replace('image/png', 'image/octet-stream');
       const link = document.createElement('a');
@@ -41,16 +48,32 @@ function App() {
     });
   }
 
+  function handleModalOpen() {
+    setModal({
+      isModalOpen: true,
+      modalContent: <img src={mandalart} className='example-image' />,
+    });
+  }
+
+  function handleModalClose() {
+    setModal({ isModalOpen: false, modalContent: '' });
+  }
+
   return (
     <>
       <GlobalStyle />
       <div className='App' id='capture'>
+        {modal.isModalOpen && (
+          <Modal handleModalClose={handleModalClose}>{modal.modalContent}</Modal>
+        )}
         <Header />
         <div className='nav'>
           <Button customClass='save' onClick={saveToImage}>
             이미지로 저장하기
           </Button>
-          <Button customClass='example-modal'>예시 보기</Button>
+          <Button customClass='example-modal' onClick={handleModalOpen}>
+            예시 보기
+          </Button>
         </div>
         <Slider>
           <div className='tables first-row'>

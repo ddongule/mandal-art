@@ -7,7 +7,6 @@ function Table({ customClass, addMainInput, centerInput, main }) {
     second: '',
     third: '',
     fourth: '',
-    fifth: '',
     sixth: '',
     seventh: '',
     eighth: '',
@@ -25,8 +24,16 @@ function Table({ customClass, addMainInput, centerInput, main }) {
     addMainInput(target.name, target.value);
   }
 
+  // function onChangeInput(e) {
+  //   const { target } = e;
+  //   if (target.value !== '') {
+  //     console.log(target, target.value);
+  //     target.style.opacity = 1;
+  //   }
+  // }
+
   return (
-    <TableWrapper>
+    <TableWrapper className='table-wrapper'>
       <div className='boxes'>
         <input
           name='first'

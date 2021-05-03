@@ -1,7 +1,7 @@
 import ButtonWrapper from './index.styles';
 
-function Button({ onClickEvent, children }) {
-  return <ButtonWrapper onClick={onClickEvent}>{children}</ButtonWrapper>;
+function Button({ onClick, children }) {
+  return <ButtonWrapper onClick={onClick}>{children}</ButtonWrapper>;
 }
 
 export default Button;
