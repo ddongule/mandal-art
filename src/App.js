@@ -5,6 +5,7 @@ import GlobalStyle from './global.styles';
 import Slider from './Slider';
 import domtoimage from 'dom-to-image';
 import { useState } from 'react';
+import Button from './Button';
 
 function App() {
   const [mainInput, setMainInput] = useState({
@@ -45,8 +46,11 @@ function App() {
       <GlobalStyle />
       <div className='App' id='capture'>
         <Header />
-        <div>
-          <button onClick={saveToImage}>이미지로 저장하기</button>
+        <div className='nav'>
+          <Button customClass='save' onClick={saveToImage}>
+            이미지로 저장하기
+          </Button>
+          <Button customClass='example-modal'>예시 보기</Button>
         </div>
         <Slider>
           <div className='tables first-row'>
@@ -58,6 +62,8 @@ function App() {
             <Table addMainInput={addMainInput} centerInput={mainInput.fourth} />
             <MainTable addMainInput={addMainInput} />
             <Table addMainInput={addMainInput} centerInput={mainInput.sixth} />
+            <div className='shader left'></div>
+            <div className='shader right'></div>
           </div>
           <div className='tables third-row'>
             <Table addMainInput={addMainInput} centerInput={mainInput.seventh} />

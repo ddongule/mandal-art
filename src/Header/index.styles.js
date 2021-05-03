@@ -11,6 +11,7 @@ const HeaderWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+  color: var(--white);
 `;
 
 export default HeaderWrapper;

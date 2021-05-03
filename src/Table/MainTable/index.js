@@ -10,6 +10,15 @@ const MainTableWrapper = styled.div`
     .second-second {
       font-size: 1.5rem;
     }
+
+    .second-second {
+      color: var(--red);
+    }
+
+    input {
+      opacity: 1;
+      background: var(--white);
+    }
   }
 `;
 

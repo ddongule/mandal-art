@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const TableWrapper = styled.div`
-  margin: 1.5rem 0;
-  padding: 0 2rem;
+  margin: 0.25rem 0;
+  padding: 0 0.25rem;
   display: block;
   align-items: center;
   justify-content: center;
@@ -14,8 +14,8 @@ const TableWrapper = styled.div`
     align-items: center;
 
     .box {
-      width: 4rem;
-      height: 4rem;
+      width: 6rem;
+      height: 6rem;
       text-align: center;
 
       &:focus {
@@ -23,12 +23,16 @@ const TableWrapper = styled.div`
       }
     }
 
+    input {
+      opacity: 0.7;
+    }
+
     .first-first,
     .second-first,
     .third-first {
-      border-top: 1px solid #cacaca;
-      border-left: 1px solid #cacaca;
-      border-right: 1px solid #cacaca;
+      border-top: 1px solid var(--gray);
+      border-left: 1px solid var(--gray);
+      border-right: 1px solid var(--gray);
     }
 
     .first-second,
@@ -37,19 +41,24 @@ const TableWrapper = styled.div`
     .first-third,
     .second-third,
     .third-third {
-      border-top: 1px solid #cacaca;
-      border-right: 1px solid #cacaca;
+      border-top: 1px solid var(--gray);
+      border-right: 1px solid var(--gray);
     }
 
     .third-first,
     .third-second,
     .third-third {
-      border-bottom: 1px solid #cacaca;
+      border-bottom: 1px solid var(--gray);
     }
 
     .second-second {
-      color: rgba(255, 143, 78, 1);
+      color: var(--purple);
       font-size: 1.3rem;
+    }
+  }
+  &:focus-within {
+    input {
+      opacity: 1;
     }
   }
 `;

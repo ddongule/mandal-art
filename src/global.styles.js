@@ -1,7 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-	*{
+
+	:root {
+		--gray: #cacaca;
+		--white: #ffffff;
+		--black: #000000;
+		--orange: rgba(255, 143, 78, 1);
+		--white-rgb: 0,0,0;
+		--purple: #5e53ff;
+		--red: #ff5353;
+		--red-opacity: #ff5353c8;
+		--background: hsla(0,0%,40%,0.56863);
+		--gradient-start: #b6d3ff;
+		--gradient-end: #fec2e9;
+	}
+
+	* {
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -16,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	html {
+		scroll-behavior: smooth;
 		-ms-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
 		-webkit-font-smoothing: antialiased;
@@ -24,16 +40,16 @@ const GlobalStyle = createGlobalStyle`
 
 	body {
 		padding: 0;
+		min-width: 60rem;
 		margin: 0;
 		font-family: 'PAYW Pro', 'PAYW Pro KR', -apple-system, BlinkMacSystemFont,
-			'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-			sans-serif;
+		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+		sans-serif;
 		height: 100%;
 		overscroll-behavior: contain;
 		overflow-anchor: none;
-		background-color: var(—foundation);
-		color: var(—distinct);
 		user-select: none;
+		background: var(--black);
 	}
 		
 	input,
@@ -52,6 +68,18 @@ const GlobalStyle = createGlobalStyle`
 	a:visited {
 		color: inherit;
 		text-decoration: none;
+	}
+
+	.App {
+		overflow: hidden;
+	}
+
+	.nav {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 1.5rem;
+
 	}
 `;
 
