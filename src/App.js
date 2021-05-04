@@ -32,6 +32,7 @@ function App() {
     'eighth-table': [],
     'nineth-table': [],
   });
+
   const [name, setName] = useState('');
 
   const [modal, setModal] = useState({
@@ -41,6 +42,7 @@ function App() {
 
   function handleUserName(name) {
     setName(name);
+    console.log(name);
   }
 
   function addMainInput(name, value) {
@@ -52,7 +54,6 @@ function App() {
 
   function handleSubTableInputs({ target }) {
     setSubTableInputs({ ...subTableInputs, [target.name]: target.value });
-    console.log(subTableInputs);
   }
 
   function handleModalOpen() {
@@ -74,7 +75,15 @@ function App() {
           <Modal handleModalClose={handleModalClose}>{modal.modalContent}</Modal>
         )}
         <Header handleUserName={handleUserName} />
-        <Nav handleModalOpen={handleModalOpen} />
+        <Nav handleModalOpen={handleModalOpen} name={name} />
+        <div>
+          <p>Mandalart: Manda(본질의 깨달음) + la(달성 및 성취) + art(기술)</p>
+          <p>본질을 깨닫는 기술, 목적을 달성하는 기술을 뜻합니다.</p>
+          <p>
+            가장 큰 주제 및 목표를 세우고 이에 대한 해결법, 아이디어, 생각 들을 확산해 나가는
+            형태로, 생각을 더욱 쉽게 정리하고 한 눈에 조합하여 확인할 수 있습니다.
+          </p>
+        </div>
         <Slider>
           <div className='tables first-row'>
             <Table
