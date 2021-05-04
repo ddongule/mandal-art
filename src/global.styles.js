@@ -6,7 +6,9 @@ const GlobalStyle = createGlobalStyle`
 		--gray: #cacaca;
 		--white: #ffffff;
 		--black: #000000;
-		--orange: #ff9f09;
+		--orange: #ff9922;
+		--yellow: #ffcf26;
+		--baemint: #42ffef;
 		--white-rgb: 0,0,0;
 		--purple: #5e53ff;
 		--red: #ff5353;
@@ -70,13 +72,6 @@ const GlobalStyle = createGlobalStyle`
 
 	.App {
 		overflow: hidden;
-	}
-
-	.nav {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-top: 1.5rem;
 	}
 
 	.example-image {

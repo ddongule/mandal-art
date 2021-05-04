@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const SliderWrapper = styled.div`
   position: relative;
-  margin: 0 auto;
+  margin: 2rem auto 4rem auto;
   max-width: 60rem;
   max-height: 60rem;
 

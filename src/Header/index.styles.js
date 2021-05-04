@@ -6,7 +6,6 @@ const HeaderWrapper = styled.div`
   font-weight: 700;
   font-family: 'Noto Sans KR', sans-serif;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 2rem;

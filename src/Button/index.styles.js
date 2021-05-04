@@ -8,7 +8,7 @@ const ButtonWrapper = styled.button`
   justify-content: center;
   align-items: center;
   border: 1px solid var(--gray);
-  font-weight: 400;
+  font-weight: 500;
   color: white;
   cursor: pointer;
   color: var(--red);

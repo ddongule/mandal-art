@@ -1,25 +1,7 @@
 import { useState } from 'react';
 import TableWrapper from './index.styles';
 
-function Table({ customClass, addMainInput, centerInput, main }) {
-  const [subInput, setSubInput] = useState({
-    first: '',
-    second: '',
-    third: '',
-    fourth: '',
-    sixth: '',
-    seventh: '',
-    eighth: '',
-    nineth: '',
-  });
-
-  function onBlurInput({ target }) {
-    setSubInput({
-      ...subInput,
-      [target.name]: target.value,
-    });
-  }
-
+function Table({ customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
   function onChangeMainInput({ target }) {
     addMainInput(target.name, target.value);
   }
@@ -38,21 +20,21 @@ function Table({ customClass, addMainInput, centerInput, main }) {
         <input
           name='first'
           className={`box first-first ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 1' : ''}
         />
         <input
           name='second'
           className={`box first-second ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 2' : ''}
         />
         <input
           name='third'
           className={`box first-third ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 3' : ''}
         />
@@ -61,14 +43,14 @@ function Table({ customClass, addMainInput, centerInput, main }) {
         <input
           name='fourth'
           className={`box second-first ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 4' : ''}
         />
         <input
           name='fifth'
           className={`box second-second ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           value={centerInput}
           readOnly={main ? false : true}
@@ -77,7 +59,7 @@ function Table({ customClass, addMainInput, centerInput, main }) {
         <input
           name='sixth'
           className={`box second-third ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 5' : ''}
         />
@@ -86,21 +68,21 @@ function Table({ customClass, addMainInput, centerInput, main }) {
         <input
           name='seventh'
           className={`box third-first ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 6' : ''}
         />
         <input
           name='eighth'
           className={`box third-second ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 7' : ''}
         />
         <input
           name='nineth'
           className={`box third-third ${customClass}`}
-          onBlur={main ? onChangeMainInput : onBlurInput}
+          onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 8' : ''}
         />

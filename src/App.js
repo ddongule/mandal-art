@@ -1,13 +1,13 @@
+import { useState } from 'react';
 import MainTable from './Table/MainTable';
 import Table from './Table';
 import Header from './Header';
 import GlobalStyle from './global.styles';
 import Slider from './Slider';
-import domtoimage from 'dom-to-image';
-import { useState } from 'react';
-import Button from './Button';
+
 import Modal from './Modal';
 import mandalart from '../src/assets/images/mandalart_otani.jpeg';
+import Nav from './Components/Nav';
 
 function App() {
   const [mainInput, setMainInput] = useState({
@@ -22,10 +22,26 @@ function App() {
     nineth: '',
   });
 
+  const [subTableInputs, setSubTableInputs] = useState({
+    'first-table': [],
+    'second-table': [],
+    'third-table': [],
+    'fourth-table': [],
+    'sixth-table': [],
+    'seventh-table': [],
+    'eighth-table': [],
+    'nineth-table': [],
+  });
+  const [name, setName] = useState('');
+
   const [modal, setModal] = useState({
     isModalOpen: false,
     modalContent: '',
   });
+
+  function handleUserName(name) {
+    setName(name);
+  }
 
   function addMainInput(name, value) {
     setMainInput({
@@ -34,24 +50,15 @@ function App() {
     });
   }
 
-  function saveToImage() {
-    const captureDOM = document.getElementById('capture');
-    console.log(captureDOM);
-    domtoimage.toPng(captureDOM).then((dataURL) => {
-      const image = dataURL.replace('image/png', 'image/octet-stream');
-      const link = document.createElement('a');
-      link.setAttribute('download', '나만의_만다라트.png');
-      link.setAttribute('href', image);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    });
+  function handleSubTableInputs({ target }) {
+    setSubTableInputs({ ...subTableInputs, [target.name]: target.value });
+    console.log(subTableInputs);
   }
 
   function handleModalOpen() {
     setModal({
       isModalOpen: true,
-      modalContent: <img src={mandalart} className='example-image' />,
+      modalContent: <img src={mandalart} className='example-image' alt='mandal-art' />,
     });
   }
 
@@ -66,32 +73,65 @@ function App() {
         {modal.isModalOpen && (
           <Modal handleModalClose={handleModalClose}>{modal.modalContent}</Modal>
         )}
-        <Header />
-        <div className='nav'>
-          <Button customClass='save' onClick={saveToImage}>
-            이미지로 저장하기
-          </Button>
-          <Button customClass='example-modal' onClick={handleModalOpen}>
-            예시 보기
-          </Button>
-        </div>
+        <Header handleUserName={handleUserName} />
+        <Nav handleModalOpen={handleModalOpen} />
         <Slider>
           <div className='tables first-row'>
-            <Table addMainInput={addMainInput} centerInput={mainInput.first} />
-            <Table addMainInput={addMainInput} centerInput={mainInput.second} />
-            <Table addMainInput={addMainInput} centerInput={mainInput.third} />
+            <Table
+              tableKey='first-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.first}
+              handleSubTableInputs={handleSubTableInputs}
+            />
+            <Table
+              tableKey='second-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.second}
+              handleSubTableInputs={handleSubTableInputs}
+            />
+            <Table
+              tableKey='third-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.third}
+              handleSubTableInputs={handleSubTableInputs}
+            />
           </div>
           <div className='tables second-row'>
-            <Table addMainInput={addMainInput} centerInput={mainInput.fourth} />
+            <Table
+              tableKey='fourth-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.fourth}
+              handleSubTableInputs={handleSubTableInputs}
+            />
             <MainTable addMainInput={addMainInput} />
-            <Table addMainInput={addMainInput} centerInput={mainInput.sixth} />
+            <Table
+              tableKey='sixth-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.sixth}
+              handleSubTableInputs={handleSubTableInputs}
+            />
             <div className='shader left'></div>
             <div className='shader right'></div>
           </div>
           <div className='tables third-row'>
-            <Table addMainInput={addMainInput} centerInput={mainInput.seventh} />
-            <Table addMainInput={addMainInput} centerInput={mainInput.eighth} />
-            <Table addMainInput={addMainInput} centerInput={mainInput.nineth} />
+            <Table
+              tableKey='seventh-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.seventh}
+              handleSubTableInputs={handleSubTableInputs}
+            />
+            <Table
+              tableKey='eighth-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.eighth}
+              handleSubTableInputs={handleSubTableInputs}
+            />
+            <Table
+              tableKey='nineth-table'
+              addMainInput={addMainInput}
+              centerInput={mainInput.nineth}
+              handleSubTableInputs={handleSubTableInputs}
+            />
           </div>
         </Slider>
       </div>
