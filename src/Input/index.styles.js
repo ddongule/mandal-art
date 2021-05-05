@@ -5,7 +5,7 @@ const InputWrapper = styled.div`
     width: 8rem;
     font-size: 2rem;
     font-weight: 700;
-    text-align: center;
+    text-align: right;
     margin-right: 0.3rem;
     background: ${({ isFocus }) => (isFocus ? 'var(--white)' : 'var(--black)')};
     color: ${({ isFocus }) => (isFocus ? 'var(--black)' : 'var(--baemint)')};
