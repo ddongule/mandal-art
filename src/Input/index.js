@@ -19,7 +19,6 @@ function Input({ handleUserName }) {
         onFocus={onHandleFocusOn}
         onBlur={onHandleFocusOut}
         maxLength='4'
-        type='text'
         placeholder='그루밍'
       />
     </InputWrapper>

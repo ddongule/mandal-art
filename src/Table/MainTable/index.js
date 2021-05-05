@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Table from '../index';
 
 const MainTableWrapper = styled.div`
+  opacity: 1;
+
   .boxes {
     visibility: visible;
 

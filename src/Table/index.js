@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import TableWrapper from './index.styles';
 
 function Table({ customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
