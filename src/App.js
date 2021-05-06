@@ -42,15 +42,15 @@ function App() {
     });
   }
 
-  function handleModalOpen() {
-    setModal({
-      isModalOpen: true,
-      modalContent: <img src={mandalart} className='example-image' alt='mandal-art' />,
-    });
-  }
-
-  function handleModalClose() {
-    setModal({ isModalOpen: false, modalContent: '' });
+  function toggleModal() {
+    setModal((prevState) => ({
+      isModalOpen: !prevState.isModalOpen,
+      modalContent: prevState.modalContent ? (
+        ''
+      ) : (
+        <img src={mandalart} className='example' alt='mandal-art' />
+      ),
+    }));
   }
 
   return (
@@ -60,11 +60,11 @@ function App() {
       <div className='App' id='capture'>
         {modal.isModalOpen && (
           <Portal>
-            <Modal handleModalClose={handleModalClose}>{modal.modalContent}</Modal>
+            <Modal handleModalClose={toggleModal}>{modal.modalContent}</Modal>
           </Portal>
         )}
         <Header handleUserName={handleUserName} />
-        <Nav handleModalOpen={handleModalOpen} name={name} />
+        <Nav handleModalOpen={toggleModal} name={name} />
         <Description />
         <Slider>
           <div className='tables first-row'>

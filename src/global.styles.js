@@ -74,7 +74,7 @@ const GlobalStyle = createGlobalStyle`
 		overflow: hidden;
 	}
 
-	.example-image {
+	.example {
     position: absolute;
 		width: 90%;
 	}
