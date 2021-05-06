@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { useMemo, useState } from 'react';
 import MainTable from './Table/MainTable';
 import Table from './Table';
 import Header from './Header';
@@ -20,18 +21,7 @@ function App() {
     sixth: '',
     seventh: '',
     eighth: '',
-    nineth: '',
-  });
-
-  const [subTableInputs, setSubTableInputs] = useState({
-    'first-table': [],
-    'second-table': [],
-    'third-table': [],
-    'fourth-table': [],
-    'sixth-table': [],
-    'seventh-table': [],
-    'eighth-table': [],
-    'nineth-table': [],
+    ninth: '',
   });
 
   const [name, setName] = useState('');
@@ -43,7 +33,6 @@ function App() {
 
   function handleUserName(name) {
     setName(name);
-    console.log(name);
   }
 
   function addMainInput(name, value) {
@@ -51,10 +40,6 @@ function App() {
       ...mainInput,
       [name]: value,
     });
-  }
-
-  function handleSubTableInputs({ target }) {
-    setSubTableInputs({ ...subTableInputs, [target.name]: target.value });
   }
 
   function handleModalOpen() {
@@ -71,9 +56,12 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <Portal />
       <div className='App' id='capture'>
         {modal.isModalOpen && (
-          <Modal handleModalClose={handleModalClose}>{modal.modalContent}</Modal>
+          <Portal>
+            <Modal handleModalClose={handleModalClose}>{modal.modalContent}</Modal>
+          </Portal>
         )}
         <Header handleUserName={handleUserName} />
         <Nav handleModalOpen={handleModalOpen} name={name} />
@@ -84,19 +72,16 @@ function App() {
               tableKey='first-table'
               addMainInput={addMainInput}
               centerInput={mainInput.first}
-              handleSubTableInputs={handleSubTableInputs}
             />
             <Table
               tableKey='second-table'
               addMainInput={addMainInput}
               centerInput={mainInput.second}
-              handleSubTableInputs={handleSubTableInputs}
             />
             <Table
               tableKey='third-table'
               addMainInput={addMainInput}
               centerInput={mainInput.third}
-              handleSubTableInputs={handleSubTableInputs}
             />
           </div>
           <div className='tables second-row'>
@@ -104,14 +89,12 @@ function App() {
               tableKey='fourth-table'
               addMainInput={addMainInput}
               centerInput={mainInput.fourth}
-              handleSubTableInputs={handleSubTableInputs}
             />
             <MainTable addMainInput={addMainInput} />
             <Table
               tableKey='sixth-table'
               addMainInput={addMainInput}
               centerInput={mainInput.sixth}
-              handleSubTableInputs={handleSubTableInputs}
             />
             <div className='shader left'></div>
             <div className='shader right'></div>
@@ -121,25 +104,28 @@ function App() {
               tableKey='seventh-table'
               addMainInput={addMainInput}
               centerInput={mainInput.seventh}
-              handleSubTableInputs={handleSubTableInputs}
             />
             <Table
               tableKey='eighth-table'
               addMainInput={addMainInput}
               centerInput={mainInput.eighth}
-              handleSubTableInputs={handleSubTableInputs}
             />
             <Table
-              tableKey='nineth-table'
+              tableKey='ninth-table'
               addMainInput={addMainInput}
-              centerInput={mainInput.nineth}
-              handleSubTableInputs={handleSubTableInputs}
+              centerInput={mainInput.ninth}
             />
           </div>
         </Slider>
       </div>
     </>
   );
+}
+
+function Portal({ children }) {
+  const modal = useMemo(() => document.getElementById('modal'), []);
+
+  return ReactDOM.createPortal(children, modal);
 }
 
 export default App;
