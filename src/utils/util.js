@@ -1,6 +1,9 @@
 import domtoimage from 'dom-to-image';
 
 function saveToImage(name) {
+  const confirmSave = window.confirm('만다라트를 저장하시겠습니까?');
+  if (!confirmSave) return;
+
   const captureDOM = document.getElementById('capture');
   const userName = name !== '' ? name : '나만';
   domtoimage
