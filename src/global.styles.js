@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 		--red: #ff5353;
 		--red-opacity: #ff5353c8;
 		--box-background: #ffffff2e;
+		--placeholder: #656565;
 		--background: hsla(0,0%,40%,0.56863);
 	}
 
@@ -54,9 +55,16 @@ const GlobalStyle = createGlobalStyle`
 	}
 		
 	input,
-	textarea,
 	button {
 		font: inherit;
+	}
+	
+	textarea {
+		/* resize: none; */
+		
+		&::placeholder{
+			vertical-align: middle;
+		}
 	}
 
 	button {

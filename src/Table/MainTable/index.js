@@ -7,18 +7,15 @@ const MainTableWrapper = styled.div`
   .boxes {
     visibility: visible;
 
-    .second-second {
-      font-size: 1.5rem;
-    }
-
-    .second-second {
-      color: var(--red);
-    }
-
-    input {
+    /* .hide-input {
       opacity: 1;
       background: var(--white);
-    }
+
+      & > .second-second::placeholder {
+        font-size: 1.5rem;
+        color: var(--red);
+      }
+    } */
   }
 `;
 
