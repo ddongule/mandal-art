@@ -13,6 +13,7 @@ const GlobalStyle = createGlobalStyle`
 		--purple: #5e53ff;
 		--red: #ff5353;
 		--red-opacity: #ff5353c8;
+		--red-opacity-big: #ff53537a;
 		--box-background: #ffffff2e;
 		--placeholder: #656565;
 		--background: hsla(0,0%,40%,0.56863);

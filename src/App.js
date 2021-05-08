@@ -53,25 +53,21 @@ function App() {
         <Nav onClickExample={openModal} name={name} />
         <Slider>
           <div className='tables first-row'>
-            <Table tableKey='first-table' addMainInput={addMainInput} centerInput={mainInput[0]} />
-            <Table tableKey='second-table' addMainInput={addMainInput} centerInput={mainInput[1]} />
-            <Table tableKey='third-table' addMainInput={addMainInput} centerInput={mainInput[2]} />
+            <Table tableKey='1' addMainInput={addMainInput} centerInput={mainInput[0]} />
+            <Table tableKey='2' addMainInput={addMainInput} centerInput={mainInput[1]} />
+            <Table tableKey='3' addMainInput={addMainInput} centerInput={mainInput[2]} />
           </div>
           <div className='tables second-row'>
-            <Table tableKey='fourth-table' addMainInput={addMainInput} centerInput={mainInput[3]} />
+            <Table tableKey='4' addMainInput={addMainInput} centerInput={mainInput[3]} />
             <MainTable addMainInput={addMainInput} />
-            <Table tableKey='sixth-table' addMainInput={addMainInput} centerInput={mainInput[4]} />
+            <Table tableKey='5' addMainInput={addMainInput} centerInput={mainInput[4]} />
             <div className='shader left'></div>
             <div className='shader right'></div>
           </div>
           <div className='tables third-row'>
-            <Table
-              tableKey='seventh-table'
-              addMainInput={addMainInput}
-              centerInput={mainInput[5]}
-            />
-            <Table tableKey='eighth-table' addMainInput={addMainInput} centerInput={mainInput[6]} />
-            <Table tableKey='ninth-table' addMainInput={addMainInput} centerInput={mainInput[7]} />
+            <Table tableKey='6' addMainInput={addMainInput} centerInput={mainInput[5]} />
+            <Table tableKey='7' addMainInput={addMainInput} centerInput={mainInput[6]} />
+            <Table tableKey='8' addMainInput={addMainInput} centerInput={mainInput[7]} />
           </div>
         </Slider>
       </div>

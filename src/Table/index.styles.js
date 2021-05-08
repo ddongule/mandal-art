@@ -7,6 +7,18 @@ const TableWrapper = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1rem;
+  position: relative;
+
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: ${({ main, centerInput }) => (main ? -1 : centerInput ? -1 : 10)};
+    background: var(--background);
+    opacity: ${({ main }) => (main ? css`1` : css`0.7`)};
+  }
 
   .boxes {
     display: flex;
@@ -21,33 +33,34 @@ const TableWrapper = styled.div`
       justify-content: center;
       align-items: center;
       cursor: text;
-      opacity: ${({ main }) => (main ? css`1` : css`0.7`)};
-
-      &.second-second span[contenteditable='true'] {
-        color: ${({ main }) => (main ? css`var(--red)` : css``)};
-        font-size: ${({ main }) => (main ? css`1.5rem` : css`1.3rem`)};
-      }
-      & span[contenteditable]:empty::before {
-        content: attr(data-placeholder);
-        color: var(--placeholder);
-        font-size: 1.125rem;
-      }
-      &.second-second span[contenteditable='true']:empty::before {
-        content: attr(data-placeholder);
-        color: ${({ main }) => (main ? css`var(--red)` : css`var(--placeholder)`)};
-        font-size: ${({ main }) => (main ? css`1.5rem` : css`1.3rem`)};
-      }
 
       span {
         width: 100%;
         max-height: 100%;
         text-align: center;
         overflow: hidden;
-        /* height: 1.2rem; */
 
         &:focus {
           outline: none;
         }
+      }
+
+      &.second-second span[contenteditable] {
+        color: ${({ main }) => (main ? css`var(--red)` : css``)};
+        font-size: ${({ main }) => (main ? css`1.5rem` : css`1.3rem`)};
+      }
+
+      & span[contenteditable]:empty::before {
+        content: attr(data-placeholder);
+        color: var(--placeholder);
+        font-size: 1.125rem;
+        opacity: 0.7;
+      }
+      &.second-second span[contenteditable='true']:empty::before {
+        content: attr(data-placeholder);
+        color: ${({ main }) => (main ? css`var(--red)` : css`var(--placeholder)`)};
+        font-size: ${({ main }) => (main ? css`1.5rem` : css`1.3rem`)};
+        opacity: 0.7;
       }
 
       &.first-first,

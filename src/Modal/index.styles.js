@@ -23,7 +23,7 @@ const ModalWrapper = styled.div`
   justify-content: center;
   backdrop-filter: blur(3px);
   transition: all 0.3s ease-in-out;
-  z-index: 1;
+  z-index: 11;
 `;
 
 const ModalInner = styled.div`
@@ -38,8 +38,7 @@ const ModalInner = styled.div`
           transform: scale(1);
           /* transform: rotate(0deg); */
         `}
-  /* min-width: 35rem;
-  min-height: 35rem; */
+
   width: calc(100% - 2rem);
   height: calc(100% - 2rem);
   max-width: 35rem;
@@ -50,7 +49,6 @@ const ModalInner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
   position: relative;
 `;
 

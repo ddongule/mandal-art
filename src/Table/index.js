@@ -1,6 +1,6 @@
 import TableWrapper from './index.styles';
 
-function Table({ customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
+function Table({ tableKey, customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
   const onChangeMainInput = ({ target }) => {
     addMainInput(target.dataset.index, target.innerText);
   };
@@ -12,7 +12,8 @@ function Table({ customClass, addMainInput, centerInput, main, handleSubTableInp
   };
 
   return (
-    <TableWrapper main={main} className='table-wrapper'>
+    <TableWrapper centerInput={centerInput} main={main} className='table-wrapper'>
+      <div className='cover'></div>
       <div className='boxes'>
         <div onClick={onClickSpan} className='hide-input first-first'>
           <span
@@ -65,7 +66,7 @@ function Table({ customClass, addMainInput, centerInput, main, handleSubTableInp
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
             autoComplete='off'
             readOnly={main ? false : true}
-            data-placeholder={main ? '최종목표' : '목표'}
+            data-placeholder={main ? '최종목표' : `목표 ${tableKey}`}
           >
             {centerInput}
           </span>
