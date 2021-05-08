@@ -36,7 +36,7 @@ const MainWrapper = styled.div`
   }
 
   .content {
-    background: #ffffff2e;
+    background: var(--box-background);
     border-radius: 12px;
     padding: 0.5rem;
     margin: 0 0.2rem;

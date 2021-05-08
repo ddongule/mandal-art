@@ -2,36 +2,28 @@ import TableWrapper from './index.styles';
 
 function Table({ customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
   function onChangeMainInput({ target }) {
-    addMainInput(target.name, target.value);
+    addMainInput(target.dataset.index, target.value);
   }
-
-  // function onChangeInput(e) {
-  //   const { target } = e;
-  //   if (target.value !== '') {
-  //     console.log(target, target.value);
-  //     target.style.opacity = 1;
-  //   }
-  // }
 
   return (
     <TableWrapper className='table-wrapper'>
       <div className='boxes'>
         <input
-          name='first'
+          data-index={0}
           className={`box first-first ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 1' : ''}
         />
         <input
-          name='second'
+          data-index={1}
           className={`box first-second ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 2' : ''}
         />
         <input
-          name='third'
+          data-index={2}
           className={`box first-third ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
@@ -40,14 +32,14 @@ function Table({ customClass, addMainInput, centerInput, main, handleSubTableInp
       </div>
       <div className='boxes'>
         <input
-          name='fourth'
+          data-index={3}
           className={`box second-first ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 4' : ''}
         />
         <input
-          name='fifth'
+          data-index={4}
           className={`box second-second ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
@@ -56,7 +48,7 @@ function Table({ customClass, addMainInput, centerInput, main, handleSubTableInp
           placeholder={main ? '최종목표' : '목표'}
         />
         <input
-          name='sixth'
+          data-index={5}
           className={`box second-third ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
@@ -65,21 +57,21 @@ function Table({ customClass, addMainInput, centerInput, main, handleSubTableInp
       </div>
       <div className='boxes'>
         <input
-          name='seventh'
+          data-index={6}
           className={`box third-first ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 6' : ''}
         />
         <input
-          name='eighth'
+          data-index={7}
           className={`box third-second ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
           placeholder={main ? '목표 7' : ''}
         />
         <input
-          name='nineth'
+          data-index={8}
           className={`box third-third ${customClass}`}
           onBlur={main ? onChangeMainInput : handleSubTableInputs}
           autoComplete='off'
