@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.div`
-  margin-top: 4rem;
+  margin-top: 2rem;
   text-align: center;
   font-weight: 700;
   font-family: 'Noto Sans KR', sans-serif;

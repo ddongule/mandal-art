@@ -7,16 +7,20 @@ const DescriptionWrapper = styled.div`
   max-width: 60rem;
   color: white;
   padding: 0 4rem;
-  margin: 4rem auto 1rem auto;
+  margin: 6rem auto 1rem auto;
   text-align: center;
 
   .title {
-    font-size: 1.7rem;
-    margin: 0 0 0.5rem 0;
+    font-size: 4rem;
+    margin: 0 0 1rem 0;
     background: linear-gradient(to right, var(--orange) 0%, var(--red) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+`;
+
+const TitleWrapper = styled.div`
+  margin-bottom: 1rem;
 `;
 
 const MainWrapper = styled.div`
@@ -43,4 +47,4 @@ const ContentWrapper = styled.p`
   line-height: 1.3;
 `;
 
-export { DescriptionWrapper, MainWrapper, ContentWrapper };
+export { DescriptionWrapper, TitleWrapper, MainWrapper, ContentWrapper };
