@@ -1,12 +1,26 @@
+import { useCallback, useEffect } from 'react';
 import { ModalWrapper, ModalInner } from './index.styles';
 
-function Modal({ handleModalClose, children }) {
+function Modal({ modal, toggleModal, children }) {
   const onClickModalDimmed = (e) => {
-    console.log(e.target, e.currentTarget);
     if (e.target !== e.currentTarget) return;
-
-    handleModalClose();
+    toggleModal();
   };
+
+  const keyPress = useCallback(
+    (e) => {
+      if (e.key === 'Escape' && modal.isModalOpen) {
+        toggleModal();
+      }
+    },
+    [modal, toggleModal]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', keyPress);
+    return () => document.removeEventListener('keydown', keyPress);
+  }, [keyPress]);
+
   return (
     <ModalWrapper onClick={onClickModalDimmed}>
       <ModalInner>{children}</ModalInner>

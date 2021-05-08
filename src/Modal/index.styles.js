@@ -2,21 +2,21 @@ import styled from 'styled-components';
 
 const ModalWrapper = styled.div`
   display: flex;
-  position: absolute;
+  width: 100%;
+  height: auto;
+  position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
   backdrop-filter: blur(3px);
-  transition: opacity 0.25s ease;
-  overflow: hidden;
+  transition: all 0.3s ease-in-out;
   z-index: 1;
+  animation: scaleUp 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 `;
 
 const ModalInner = styled.div`
-  transition: top 0.25s ease;
+  transition: all 0.3s;
   min-width: 35rem;
   min-height: 35rem;
   margin: auto;

@@ -57,15 +57,18 @@ function App() {
     <>
       <GlobalStyle />
       <Portal />
+
+      {modal.isModalOpen && (
+        <Portal>
+          <Modal modal={modal} toggleModal={toggleModal}>
+            {modal.modalContent}
+          </Modal>
+        </Portal>
+      )}
+      <Description />
       <div className='App' id='capture'>
-        {modal.isModalOpen && (
-          <Portal>
-            <Modal handleModalClose={toggleModal}>{modal.modalContent}</Modal>
-          </Portal>
-        )}
         <Header handleUserName={handleUserName} />
-        <Nav handleModalOpen={toggleModal} name={name} />
-        <Description />
+        <Nav toggleModal={toggleModal} name={name} />
         <Slider>
           <div className='tables first-row'>
             <Table
