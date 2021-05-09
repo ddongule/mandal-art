@@ -50,6 +50,9 @@ const TableWrapper = styled.div`
       &.second-second span[contenteditable] {
         color: ${({ main }) => (main ? css`var(--red)` : css``)};
         font-size: ${({ main }) => (main ? css`1.5rem` : css`1.3rem`)};
+        -webkit-user-modify: ${({ main }) =>
+          main ? css`read-write-plaintext-only` : css`read-only`};
+        cursor: default;
       }
 
       & span[contenteditable]:empty::before {
