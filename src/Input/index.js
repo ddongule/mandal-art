@@ -13,13 +13,18 @@ function Input({ handleUserName }) {
     setIsFocus(true);
   }
 
+  function resize({ target }) {
+    target.style.width = `${target.value.length * 0.6 + 1.65}em`;
+  }
+
   return (
     <InputWrapper>
       <input
+        onKeyUp={resize}
         onFocus={onHandleFocusOn}
         onBlur={onHandleFocusOut}
-        maxLength='4'
-        placeholder='그루밍'
+        maxLength='6'
+        placeholder='구루는구루밍'
       />
     </InputWrapper>
   );

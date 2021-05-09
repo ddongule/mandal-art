@@ -1,16 +1,23 @@
 import styled from 'styled-components';
 
 const InputWrapper = styled.div`
+  transition: transform 300ms ease;
+  text-align: right;
+
   input {
-    width: 8rem;
+    width: auto;
+    max-width: 11rem;
     font-size: 2rem;
     font-weight: 700;
     text-align: right;
     margin-right: 0.3rem;
-    background: ${({ isFocus }) => (isFocus ? 'var(--white)' : 'var(--black)')};
+    background: var(--black);
     color: ${({ isFocus }) => (isFocus ? 'var(--black)' : 'var(--baemint)')};
     outline: 0;
     cursor: pointer;
+    transition: width 300ms ease;
+
+    overflow: auto;
 
     &::placeholder {
       color: white;
@@ -18,8 +25,8 @@ const InputWrapper = styled.div`
     }
 
     &:focus {
-      background: var(--white);
-      color: var(--black);
+      color: var(--baemint);
+      background: var(--black);
       outline: 0;
 
       &::placeholder {

@@ -8,6 +8,9 @@ const TableWrapper = styled.div`
   justify-content: center;
   font-size: 1rem;
   position: relative;
+  font-family: 'PAYW Pro Medium', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 1rem;
 
   .cover {
     position: absolute;

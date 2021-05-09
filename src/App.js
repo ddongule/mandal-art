@@ -10,6 +10,7 @@ import Slider from './Slider';
 
 import GlobalStyle from './global.styles';
 import mandalart from '../src/assets/images/mandalart_otani.jpeg';
+import Footer from './Footer';
 
 function Portal({ children }) {
   const modal = useMemo(() => document.getElementById('modal'), []);
@@ -48,9 +49,9 @@ function App() {
         </Modal>
       </Portal>
       <Description />
+      <Nav onClickExample={openModal} name={name} />
       <div className='App' id='capture'>
         <Header handleUserName={handleUserName} />
-        <Nav onClickExample={openModal} name={name} />
         <Slider>
           <div className='tables first-row'>
             <Table tableKey='1' addMainInput={addMainInput} centerInput={mainInput[0]} />
@@ -70,6 +71,7 @@ function App() {
             <Table tableKey='8' addMainInput={addMainInput} centerInput={mainInput[7]} />
           </div>
         </Slider>
+        <Footer />
       </div>
     </>
   );

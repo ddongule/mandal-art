@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const DescriptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  font-weight: 200;
   max-width: 60rem;
   color: white;
   padding: 0 4rem;
@@ -20,6 +19,8 @@ const DescriptionWrapper = styled.div`
 `;
 
 const TitleWrapper = styled.div`
+  font-family: 'PAYW Pro Bold', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-bottom: 1rem;
 `;
 
