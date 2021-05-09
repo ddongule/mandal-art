@@ -16,7 +16,8 @@ const HeaderWrapper = styled.div`
     display: flex;
     position: absolute;
     top: -2rem;
-    left: 43%;
+    left: 50%;
+    transform: translateX(-50%);
 
     img {
       width: 1rem;

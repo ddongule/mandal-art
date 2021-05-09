@@ -113,6 +113,10 @@ const GlobalStyle = createGlobalStyle`
 		text-decoration: none;
 	}
 
+	[contenteditable] {
+		-webkit-user-modify: read-write-plaintext-only;
+	}
+
 	.App {
 		overflow: hidden;
 	}

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import TableWrapper from './index.styles';
 
 function Table({ tableKey, customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
