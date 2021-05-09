@@ -1,6 +1,39 @@
 import { createGlobalStyle } from 'styled-components';
 
+import PaywProBold from './assets/fonts/otf/PAYW-Pro-Bold.otf';
+import PaywProExtraLight from './assets/fonts/otf/PAYW-Pro-ExtraLight.otf';
+import PaywProLight from './assets/fonts/otf/PAYW-Pro-Light.otf';
+import PaywProMedium from './assets/fonts/otf/PAYW-Pro-Medium.otf';
+import PaywProRegular from './assets/fonts/otf/PAYW-Pro-Regular.otf';
+import PaywProSemiBold from './assets/fonts/otf/PAYW-Pro-SemiBold.otf';
+import PaywProThin from './assets/fonts/otf/PAYW-Pro-Thin.otf';
+
 const GlobalStyle = createGlobalStyle`
+	@font-face {
+		font-family: 'PAYW Pro Bold';
+		src: url(${PaywProBold}) format('woff');
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'PAYW Pro';
+		src: url(${PaywProLight}) format('woff');
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'PAYW Pro Medium';
+		src: url(${PaywProMedium}) format('woff');
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'PAYW-Pro';
+		src: url(${PaywProRegular}) format('woff');
+		font-style: normal;
+	}
+	@font-face {
+		font-family: 'PAYW Pro SemiBold';
+		src: url(${PaywProSemiBold}) format('woff');
+		font-style: normal;
+	}
 
 	:root {
 		--gray: #cacaca;
@@ -87,6 +120,15 @@ const GlobalStyle = createGlobalStyle`
 	.example {
     position: absolute;
 		width: 90%;
+	}
+
+	@keyframes upDown {
+		0% {
+			margin-top: 0px;
+		}
+		100% {
+			margin-top: 1rem;
+		}
 	}
 `;
 
