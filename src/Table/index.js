@@ -12,6 +12,10 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
     }
   };
 
+  const onPreventTab = (e) => {
+    if (e.keyCode === 9) e.preventDefault();
+  };
+
   return (
     <TableWrapper centerInput={centerInput} main={main} className='table-wrapper'>
       <div className='cover'></div>
@@ -112,6 +116,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
             autoComplete='off'
             data-placeholder={main ? '목표 8' : ''}
+            onKeyDown={onPreventTab}
           />
         </div>
       </div>
