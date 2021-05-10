@@ -122,6 +122,11 @@ const GlobalStyle = createGlobalStyle`
 		width: 90%;
 	}
 
+	[contenteditable] {
+		-webkit-user-select: text;
+    user-select: text;
+	}
+
 	@keyframes upDown {
 		0% {
 			margin-top: 0px;
