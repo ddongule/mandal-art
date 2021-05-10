@@ -45,13 +45,17 @@ const TableWrapper = styled.div`
         &:focus {
           outline: none;
         }
+
+        &[contentEditable] {
+          -webkit-user-select: text;
+          user-select: text;
+        }
       }
 
       &.second-second span[contenteditable] {
         color: ${({ main }) => (main ? css`var(--red)` : css``)};
         font-size: ${({ main }) => (main ? css`1.5rem` : css`1.3rem`)};
-        -webkit-user-modify: ${({ main }) =>
-          main ? css`read-write-plaintext-only` : css`read-only`};
+        -webkit-user-modify: ${({ main }) => (main ? css`read-write` : css`read-only`)};
         cursor: default;
         overflow-wrap: break-word;
       }
@@ -62,6 +66,7 @@ const TableWrapper = styled.div`
         font-size: 1.125rem;
         opacity: 0.7;
       }
+
       &.second-second span[contenteditable='true']:empty::before {
         content: attr(data-placeholder);
         color: ${({ main }) => (main ? css`var(--red)` : css`var(--placeholder)`)};
