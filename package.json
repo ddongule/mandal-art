@@ -10,7 +10,6 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "styled-component": "^2.8.0",
     "styled-components": "^5.2.3",
     "web-vitals": "^1.0.1"
   },
