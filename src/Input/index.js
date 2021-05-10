@@ -4,18 +4,22 @@ import InputWrapper from './index.styles';
 function Input({ handleUserName }) {
   const [isFocus, setIsFocus] = useState(false);
 
-  function onHandleFocusOut({ target }) {
+  const onHandleFocusOut = ({ target }) => {
     setIsFocus(false);
     handleUserName(target.value);
-  }
+  };
 
-  function onHandleFocusOn() {
+  const onHandleFocusOn = () => {
     setIsFocus(true);
-  }
+  };
 
-  function resize({ target }) {
+  const resize = ({ target }) => {
     target.style.width = `${target.value.length * 0.6 + 1.65}em`;
-  }
+  };
+
+  const onPreventTab = (e) => {
+    if (e.keyCode === 9) e.preventDefault();
+  };
 
   return (
     <InputWrapper>
@@ -23,6 +27,7 @@ function Input({ handleUserName }) {
         onKeyUp={resize}
         onFocus={onHandleFocusOn}
         onBlur={onHandleFocusOut}
+        onKeyDown={onPreventTab}
         maxLength='6'
         placeholder='구루는구루밍'
       />

@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import TableWrapper from './index.styles';
 
 function Table({ tableKey, customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
@@ -16,6 +15,10 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
     if (e.keyCode === 9) e.preventDefault();
   };
 
+  const onPreventShiftTab = (e) => {
+    if (e.keyCode === 9 && e.shiftKey) e.preventDefault();
+  };
+
   return (
     <TableWrapper centerInput={centerInput} main={main} className='table-wrapper'>
       <div className='cover'></div>
@@ -28,6 +31,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
             autoComplete='off'
             data-placeholder={main ? '목표 1' : ''}
+            onKeyDown={onPreventShiftTab}
           />
         </div>
         <div onClick={onClickSpan} className='hide-input first-second'>
