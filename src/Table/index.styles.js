@@ -53,6 +53,7 @@ const TableWrapper = styled.div`
         -webkit-user-modify: ${({ main }) =>
           main ? css`read-write-plaintext-only` : css`read-only`};
         cursor: default;
+        overflow-wrap: break-word;
       }
 
       & span[contenteditable]:empty::before {
