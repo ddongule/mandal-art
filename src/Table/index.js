@@ -19,6 +19,12 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
     if (e.keyCode === 9 && e.shiftKey) e.preventDefault();
   };
 
+  const onPreventStylePaste = (e) => {
+    e.preventDefault();
+    const text = e.clipboardData.getData('text');
+    document.execCommand('insertText', false, text);
+  };
+
   return (
     <TableWrapper centerInput={centerInput} main={main} className='table-wrapper'>
       <div className='cover'></div>
@@ -26,6 +32,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input first-first'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={0}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
@@ -37,6 +44,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input first-second'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={1}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
@@ -48,6 +56,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input first-third'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={2}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
@@ -60,6 +69,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input second-first'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={3}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
@@ -83,6 +93,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input second-third'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={4}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
@@ -95,6 +106,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input third-first'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={5}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
@@ -105,6 +117,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input third-second'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={6}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
@@ -115,6 +128,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input third-third'>
           <span
             contentEditable={true}
+            onPaste={onPreventStylePaste}
             data-index={7}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
