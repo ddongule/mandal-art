@@ -41,8 +41,6 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Portal />
-
       <Portal>
         <Modal isOpen={isModalOpen} onClickModal={closeModal} onPressEsc={closeModal}>
           <img src={mandalart} className='example' alt='mandal-art' />
