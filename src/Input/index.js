@@ -18,7 +18,7 @@ function Input({ handleUserName }) {
   };
 
   const onPreventTab = (e) => {
-    if (e.keyCode === 9) e.preventDefault();
+    if (e.key === 'Tab') e.preventDefault();
   };
 
   return (

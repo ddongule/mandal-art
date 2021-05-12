@@ -12,11 +12,11 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
   };
 
   const onPreventTab = (e) => {
-    if (e.keyCode === 9) e.preventDefault();
+    if (e.key === 'Tab') e.preventDefault();
   };
 
   const onPreventShiftTab = (e) => {
-    if (e.keyCode === 9 && e.shiftKey) e.preventDefault();
+    if (e.key === 'Tab' && e.shiftKey) e.preventDefault();
   };
 
   const onPreventStylePaste = (e) => {
