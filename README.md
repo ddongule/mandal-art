@@ -27,6 +27,27 @@
 - [`React.js`](https://reactjs.org/)
 - [`styled-components`](https://styled-components.com/)
 
+## How to Start?
+Use `yarn`
+```
+yarn 
+
+yarn start
+```
+Use `npm`
+```
+npm install
+
+npm start
+```
+## How to Contribute?
+
+1. **Fork** this repository
+2. **Create** your own branch: `git checkout -b new-feature`
+3. **Add** and **Commit**: `git commit -am 'feat: add new feature`
+4. **Push** to your branch: `git push origin new-feature`
+5. **Submit** a Pull Request!🌟
+
 ## License
 
 - [`MIT License`]('./LICENSE')
