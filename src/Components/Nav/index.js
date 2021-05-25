@@ -1,4 +1,4 @@
-import Button from '../../Button';
+import Button from '../Button';
 import NavWrapper from './index.styles';
 import { saveToImage } from '../../utils/util';
 

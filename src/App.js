@@ -1,16 +1,16 @@
 import ReactDOM from 'react-dom';
 import { useMemo, useState } from 'react';
 import Description from './Components/Description';
-import Header from './Header';
+import Header from './Components/Header';
 import Nav from './Components/Nav';
-import Modal from './Modal';
-import Table from './Table';
-import MainTable from './Table/MainTable';
-import Slider from './Slider';
+import Modal from './Components/Modal';
+import Table from './Components/Table';
+import MainTable from './Components/Table/MainTable';
+import Slider from './Components/Slider';
 
 import GlobalStyle from './global.styles';
-import mandalart from '../src/assets/images/mandalart_otani.jpeg';
-import Footer from './Footer';
+import mandalartImage from '../src/assets/images/mandalart_otani.jpeg';
+import Footer from './Components/Footer';
 
 function Portal({ children }) {
   const modal = useMemo(() => document.getElementById('modal'), []);
@@ -43,7 +43,7 @@ function App() {
       <GlobalStyle />
       <Portal>
         <Modal isOpen={isModalOpen} onClickModal={closeModal} onPressEsc={closeModal}>
-          <img src={mandalart} className='example' alt='mandal-art' />
+          <img src={mandalartImage} className='example' alt='mandal-art' />
         </Modal>
       </Portal>
       <Description />

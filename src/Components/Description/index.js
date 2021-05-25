@@ -1,15 +1,21 @@
-import { DescriptionWrapper, TitleWrapper, MainWrapper, ContentWrapper } from './index.styles';
+import {
+  DescriptionWrapper,
+  TitleWrapper,
+  MainWrapper,
+  ContentWrapper,
+  Title,
+  Content,
+} from './index.styles';
 
-function Description({ name, handleModalOpen }) {
+function Description() {
   return (
     <DescriptionWrapper>
       <TitleWrapper>
-        <span className='title'>Mandalart</span>
+        <Title>Mandalart</Title>
       </TitleWrapper>
       <MainWrapper>
-        <span className='content'>Manda(본질의 깨달음)</span> +
-        <span className='content'>la(달성 및 성취)</span> +
-        <span className='content'>art(기술)</span>
+        <Content>Manda(본질의 깨달음)</Content> +<Content>la(달성 및 성취)</Content> +
+        <Content>art(기술)</Content>
       </MainWrapper>
       <ContentWrapper>본질을 깨닫는 기술, 목적을 달성하는 기술을 뜻합니다.</ContentWrapper>
       <ContentWrapper>

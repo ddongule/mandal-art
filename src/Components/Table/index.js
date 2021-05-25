@@ -27,7 +27,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
 
   return (
     <TableWrapper centerInput={centerInput} main={main} className='table-wrapper'>
-      <Cover />
+      <Cover main={main} centerInput={centerInput} />
       <div className='boxes'>
         <div onClick={onClickSpan} className='hide-input first-first'>
           <span
