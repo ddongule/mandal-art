@@ -1,17 +1,15 @@
-import { useState } from 'react';
 import InputWrapper from './index.styles';
+import { useState } from 'react';
 
 function Input({ handleUserName }) {
   const [isFocus, setIsFocus] = useState(false);
 
   const onHandleFocusOut = ({ target }) => {
-    setIsFocus(false);
     handleUserName(target.value);
+    setIsFocus(false);
   };
 
-  const onHandleFocusOn = () => {
-    setIsFocus(true);
-  };
+  const onHandleFocusOn = () => setIsFocus(true);
 
   const resize = ({ target }) => {
     target.style.width = `${target.value.length * 0.6 + 1.65}em`;

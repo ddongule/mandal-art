@@ -1,21 +1,18 @@
-import ReactDOM from 'react-dom';
-import { useMemo, useState } from 'react';
 import Description from './Components/Description';
-import Header from './Components/Header';
-import Nav from './Components/Nav';
-import Modal from './Components/Modal';
-import Table from './Components/Table';
-import MainTable from './Components/Table/MainTable';
-import Slider from './Components/Slider';
-
-import GlobalStyle from './global.styles';
-import mandalartImage from '../src/assets/images/mandalart_otani.jpeg';
 import Footer from './Components/Footer';
+import GlobalStyle from './global.styles';
+import Header from './Components/Header';
+import MainTable from './Components/Table/MainTable';
+import Modal from './Components/Modal';
+import Nav from './Components/Nav';
+import ReactDOM from 'react-dom';
+import Slider from './Components/Slider';
+import Table from './Components/Table';
+import mandalartImage from '../src/assets/images/mandalart_otani.jpeg';
+import { useState } from 'react';
 
 function Portal({ children }) {
-  const modal = useMemo(() => document.getElementById('modal'), []);
-
-  return ReactDOM.createPortal(children, modal);
+  return ReactDOM.createPortal(children, document.getElementById('modal'));
 }
 
 function App() {
@@ -34,6 +31,7 @@ function App() {
     setMainInput((prevState) => {
       const newState = [...prevState];
       newState.splice(index, 1, value);
+
       return newState;
     });
   }

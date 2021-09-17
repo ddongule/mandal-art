@@ -1,4 +1,4 @@
-import { TableWrapper, Cover } from './index.styles';
+import { Cover, TableWrapper } from './index.styles';
 
 function Table({ tableKey, customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
   const onChangeMainInput = ({ target }) => {
@@ -20,9 +20,17 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
   };
 
   const onPreventStylePaste = (e) => {
+    const pasted = { content: '' };
+    if (window.clipboardData && window.clipboardData.getData) {
+      pasted.content = window.clipboardData.getData('Text');
+    } else if (e.clipboardData && e.clipboardData.getData) {
+      pasted.content = e.clipboardData.getData('text/plain');
+    }
+
+    e.target.textContent = pasted.content;
     e.preventDefault();
-    const text = e.clipboardData.getData('text');
-    document.execCommand('insertText', false, text);
+
+    return false;
   };
 
   return (
@@ -80,6 +88,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
         <div onClick={onClickSpan} className='hide-input second-second'>
           <span
             contentEditable={main ? true : false}
+            onPaste={onPreventStylePaste}
             data-index={8}
             className={`box ${customClass}`}
             onBlur={main ? onChangeMainInput : handleSubTableInputs}
