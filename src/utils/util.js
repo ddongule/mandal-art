@@ -6,6 +6,7 @@ function saveToImage(name) {
 
   const captureDOM = document.getElementById('capture');
   const userName = name !== '' ? name : '나만';
+
   domtoimage
     .toJpeg(captureDOM)
     .then((dataURL) => {
@@ -19,6 +20,7 @@ function saveToImage(name) {
     })
     .catch((error) => {
       console.error(`${error} 저장 실패!`);
+      alert('저장에 실패했습니다. 다시 시도해주세요!');
     });
 }
 
