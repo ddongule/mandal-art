@@ -1,6 +1,6 @@
 import { Cover, TableWrapper } from './index.styles';
 
-function Table({ tableKey, customClass, addMainInput, centerInput, main, handleSubTableInputs }) {
+function Table({ tableKey, customClass, addMainInput, centerInput, main }) {
   const onChangeMainInput = ({ target }) => {
     addMainInput(target.dataset.index, target.innerText);
   };
@@ -34,7 +34,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
   };
 
   return (
-    <TableWrapper centerInput={centerInput} main={main} className='table-wrapper'>
+    <TableWrapper centerInput={centerInput} main={main}>
       <Cover main={main} centerInput={centerInput} />
       <div className='boxes'>
         <div onClick={onClickSpan} className='hide-input first-first'>
@@ -43,7 +43,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={0}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 1' : ''}
             onKeyDown={onPreventShiftTab}
@@ -55,7 +55,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={1}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 2' : ''}
           />
@@ -67,7 +67,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={2}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 3' : ''}
           />
@@ -80,7 +80,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={3}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 4' : ''}
           />
@@ -91,7 +91,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={8}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             readOnly={main ? false : true}
             data-placeholder={main ? '최종목표' : `목표 ${tableKey}`}
@@ -105,7 +105,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={4}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 5' : ''}
           />
@@ -118,7 +118,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={5}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 6' : ''}
           />
@@ -129,7 +129,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={6}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 7' : ''}
           />
@@ -140,7 +140,7 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main, handleS
             onPaste={onPreventStylePaste}
             data-index={7}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : handleSubTableInputs}
+            onBlur={main ? onChangeMainInput : null}
             autoComplete='off'
             data-placeholder={main ? '목표 8' : ''}
             onKeyDown={onPreventTab}
