@@ -2,7 +2,7 @@ import Button from '../Button';
 import NavWrapper from './index.styles';
 import { saveToImage } from '../../utils/util';
 
-function Nav({ name, onClickExample }) {
+function Nav({ name, onClickExample, reset }) {
   return (
     <NavWrapper>
       <Button customClass='save' onClick={() => saveToImage(name)}>
@@ -11,6 +11,7 @@ function Nav({ name, onClickExample }) {
       <Button customClass='example-modal' onClick={onClickExample}>
         예시 보기
       </Button>
+      <Button onClick={reset}>초기화</Button>
     </NavWrapper>
   );
 }

@@ -15,13 +15,22 @@ function Portal({ children }) {
   return ReactDOM.createPortal(children, document.getElementById('modal'));
 }
 
+const MAIN = [...new Array(9)].fill('');
+const SUB = [...new Array(9)].map(() => [...new Array(9)].fill(''));
+
 function App() {
-  const [mainInput, setMainInput] = useState([...new Array(9)].fill(''));
-  const [subInput, setSubInput] = useState(() =>
-    [...new Array(9)].map(() => [...new Array(9)].fill(''))
-  );
+  const [mainInput, setMainInput] = useState(MAIN);
+  const [subInput, setSubInput] = useState(SUB);
   const [name, setName] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const setInputValue = (tableKey, index, value) => {
+    const id = `box-${tableKey}-${index}`;
+    const element = document.getElementById(id);
+    if (element) {
+      element.textContent = value;
+    }
+  };
 
   // initialize main/sub input with localStorage
   useEffect(() => {
@@ -30,29 +39,38 @@ function App() {
     if (m) {
       setMainInput(JSON.parse(m));
       for (var j = 0; j < 9; j++) {
-        const id = `box-main-${j}`;
-        const element = document.getElementById(id);
-        console.log(id, element);
-        if (element) {
-          element.textContent = JSON.parse(m)[j];
-        }
+        setInputValue('main', j, JSON.parse(m)[j]);
       }
     }
     if (s) {
       setSubInput(JSON.parse(s));
-
       for (var i = 0; i < 9; i++) {
         for (var j = 0; j < 9; j++) {
-          const id = `box-${i + 1}-${j}`;
-          const element = document.getElementById(id);
-          console.log(id, element);
-          if (element) {
-            element.textContent = JSON.parse(s)[i][j];
-          }
+          setInputValue(i + 1, j, JSON.parse(s)[i][j]);
         }
       }
     }
   }, []);
+
+  const handleReset = () => {
+    setName('');
+    setIsModalOpen(false);
+
+    // localstoage
+    localStorage.setItem('mainInput', JSON.stringify(MAIN));
+    localStorage.setItem('subInput', JSON.stringify(SUB));
+
+    // input values
+    setMainInput(MAIN);
+    setSubInput(SUB);
+    for (var i = 0; i < 9; i++) {
+      for (var j = 0; j < 9; j++) {
+        setInputValue(i + 1, j, '');
+      }
+      setInputValue('main', i, '');
+    }
+    alert('초기화 되었습니다.');
+  };
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -88,7 +106,7 @@ function App() {
         </Modal>
       </Portal>
       <Description />
-      <Nav onClickExample={openModal} name={name} />
+      <Nav onClickExample={openModal} name={name} reset={handleReset} />
       <div className='App' id='capture'>
         <Header handleUserName={handleUserName} />
         <Slider>
