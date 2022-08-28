@@ -1,8 +1,12 @@
 import { Cover, TableWrapper } from './index.styles';
 
-function Table({ tableKey, customClass, addMainInput, centerInput, main }) {
+function Table({ tableKey, customClass, addMainInput, centerInput, main, addSubInput }) {
   const onChangeMainInput = ({ target }) => {
-    addMainInput(target.dataset.index, target.innerText);
+    addMainInput(Number(target.dataset.index), target.innerText);
+  };
+
+  const onChangeSubInput = ({ target }) => {
+    addSubInput(Number(target.dataset.index), target.innerText);
   };
 
   const onClickSpan = (/** @type {ClickEvent}*/ e) => {
@@ -39,23 +43,25 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main }) {
       <div className='boxes'>
         <div onClick={onClickSpan} className='hide-input first-first'>
           <span
+            id={`box-${tableKey}-0`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={0}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 1' : ''}
             onKeyDown={onPreventShiftTab}
-          />
+          ></span>
         </div>
         <div onClick={onClickSpan} className='hide-input first-second'>
           <span
+            id={`box-${tableKey}-1`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={1}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 2' : ''}
           />
@@ -63,11 +69,12 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main }) {
 
         <div onClick={onClickSpan} className='hide-input first-third'>
           <span
+            id={`box-${tableKey}-2`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={2}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 3' : ''}
           />
@@ -76,22 +83,24 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main }) {
       <div className='boxes'>
         <div onClick={onClickSpan} className='hide-input second-first'>
           <span
+            id={`box-${tableKey}-3`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={3}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 4' : ''}
           />
         </div>
         <div onClick={onClickSpan} className='hide-input second-second'>
           <span
+            id={`box-${tableKey}-8`}
             contentEditable={main ? true : false}
             onPaste={onPreventStylePaste}
             data-index={8}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             readOnly={main ? false : true}
             data-placeholder={main ? '최종목표' : `목표 ${tableKey}`}
@@ -101,11 +110,12 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main }) {
         </div>
         <div onClick={onClickSpan} className='hide-input second-third'>
           <span
+            id={`box-${tableKey}-4`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={4}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 5' : ''}
           />
@@ -114,33 +124,36 @@ function Table({ tableKey, customClass, addMainInput, centerInput, main }) {
       <div className='boxes'>
         <div onClick={onClickSpan} className='hide-input third-first'>
           <span
+            id={`box-${tableKey}-5`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={5}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 6' : ''}
           />
         </div>
         <div onClick={onClickSpan} className='hide-input third-second'>
           <span
+            id={`box-${tableKey}-6`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={6}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 7' : ''}
           />
         </div>
         <div onClick={onClickSpan} className='hide-input third-third'>
           <span
+            id={`box-${tableKey}-7`}
             contentEditable={true}
             onPaste={onPreventStylePaste}
             data-index={7}
             className={`box ${customClass}`}
-            onBlur={main ? onChangeMainInput : null}
+            onBlur={main ? onChangeMainInput : onChangeSubInput}
             autoComplete='off'
             data-placeholder={main ? '목표 8' : ''}
             onKeyDown={onPreventTab}

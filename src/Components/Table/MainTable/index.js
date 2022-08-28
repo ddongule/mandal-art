@@ -22,7 +22,7 @@ const MainTableWrapper = styled.div`
 function MainTable({ addMainInput }) {
   return (
     <MainTableWrapper>
-      <Table customClass='main' addMainInput={addMainInput} main={true} />
+      <Table tableKey={'main'} customClass='main' addMainInput={addMainInput} main={true} />
     </MainTableWrapper>
   );
 }
