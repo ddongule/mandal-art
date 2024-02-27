@@ -9,16 +9,68 @@ import ReactDOM from 'react-dom';
 import Slider from './Components/Slider';
 import Table from './Components/Table';
 import mandalartImage from '../src/assets/images/mandalart_otani.jpeg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Portal({ children }) {
   return ReactDOM.createPortal(children, document.getElementById('modal'));
 }
 
+const MAIN = [...new Array(9)].fill('');
+const SUB = [...new Array(9)].map(() => [...new Array(9)].fill(''));
+
 function App() {
-  const [mainInput, setMainInput] = useState([...new Array(9)].fill(''));
+  const [mainInput, setMainInput] = useState(MAIN);
+  const [subInput, setSubInput] = useState(SUB);
   const [name, setName] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const setInputValue = (tableKey, index, value) => {
+    const id = `box-${tableKey}-${index}`;
+    const element = document.getElementById(id);
+    if (element) {
+      element.textContent = value;
+    }
+  };
+
+  // initialize main/sub input with localStorage
+  useEffect(() => {
+    const m = localStorage.getItem('mainInput');
+    const s = localStorage.getItem('subInput');
+    if (m) {
+      setMainInput(JSON.parse(m));
+      for (var j = 0; j < 9; j++) {
+        setInputValue('main', j, JSON.parse(m)[j]);
+      }
+    }
+    if (s) {
+      setSubInput(JSON.parse(s));
+      for (var i = 0; i < 9; i++) {
+        for (var j = 0; j < 9; j++) {
+          setInputValue(i + 1, j, JSON.parse(s)[i][j]);
+        }
+      }
+    }
+  }, []);
+
+  const handleReset = () => {
+    setName('');
+    setIsModalOpen(false);
+
+    // localstoage
+    localStorage.setItem('mainInput', JSON.stringify(MAIN));
+    localStorage.setItem('subInput', JSON.stringify(SUB));
+
+    // input values
+    setMainInput(MAIN);
+    setSubInput(SUB);
+    for (var i = 0; i < 9; i++) {
+      for (var j = 0; j < 9; j++) {
+        setInputValue(i + 1, j, '');
+      }
+      setInputValue('main', i, '');
+    }
+    alert('초기화 되었습니다.');
+  };
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -31,7 +83,16 @@ function App() {
     setMainInput((prevState) => {
       const newState = [...prevState];
       newState.splice(index, 1, value);
+      localStorage.setItem('mainInput', JSON.stringify(newState));
+      return newState;
+    });
+  }
 
+  function addSubInput(mainIndex, index, value) {
+    setSubInput((prevState) => {
+      const newState = [...prevState];
+      newState[mainIndex][index] = value;
+      localStorage.setItem('subInput', JSON.stringify(newState));
       return newState;
     });
   }
@@ -45,26 +106,66 @@ function App() {
         </Modal>
       </Portal>
       <Description />
-      <Nav onClickExample={openModal} name={name} />
+      <Nav onClickExample={openModal} name={name} reset={handleReset} />
       <div className='App' id='capture'>
         <Header handleUserName={handleUserName} />
         <Slider>
           <div className='tables first-row'>
-            <Table tableKey='1' addMainInput={addMainInput} centerInput={mainInput[0]} />
-            <Table tableKey='2' addMainInput={addMainInput} centerInput={mainInput[1]} />
-            <Table tableKey='3' addMainInput={addMainInput} centerInput={mainInput[2]} />
+            <Table
+              tableKey='1'
+              addMainInput={addMainInput}
+              centerInput={mainInput[0]}
+              addSubInput={(index, value) => addSubInput(0, index, value)}
+            />
+            <Table
+              tableKey='2'
+              addMainInput={addMainInput}
+              centerInput={mainInput[1]}
+              addSubInput={(index, value) => addSubInput(1, index, value)}
+            />
+            <Table
+              tableKey='3'
+              addMainInput={addMainInput}
+              centerInput={mainInput[2]}
+              addSubInput={(index, value) => addSubInput(2, index, value)}
+            />
           </div>
           <div className='tables second-row'>
-            <Table tableKey='4' addMainInput={addMainInput} centerInput={mainInput[3]} />
+            <Table
+              tableKey='4'
+              addMainInput={addMainInput}
+              centerInput={mainInput[3]}
+              addSubInput={(index, value) => addSubInput(3, index, value)}
+            />
             <MainTable addMainInput={addMainInput} />
-            <Table tableKey='5' addMainInput={addMainInput} centerInput={mainInput[4]} />
+            <Table
+              tableKey='5'
+              addMainInput={addMainInput}
+              centerInput={mainInput[4]}
+              addSubInput={(index, value) => addSubInput(4, index, value)}
+            />
             <div className='shader left'></div>
             <div className='shader right'></div>
           </div>
           <div className='tables third-row'>
-            <Table tableKey='6' addMainInput={addMainInput} centerInput={mainInput[5]} />
-            <Table tableKey='7' addMainInput={addMainInput} centerInput={mainInput[6]} />
-            <Table tableKey='8' addMainInput={addMainInput} centerInput={mainInput[7]} />
+            <Table
+              tableKey='6'
+              addMainInput={addMainInput}
+              centerInput={mainInput[5]}
+              addSubInput={(index, value) => addSubInput(5, index, value)}
+            />
+            <Table
+              tableKey='7'
+              addMainInput={addMainInput}
+              centerInput={mainInput[6]}
+              addSubInput={(index, value) => addSubInput(6, index, value)}
+            />
+            <Table
+              tableKey='8'
+              addMainInput={addMainInput}
+              centerInput={mainInput[7]}
+              addSubInput={(index, value) => addSubInput(7, index, value)}
+            />
           </div>
         </Slider>
         <Footer />
